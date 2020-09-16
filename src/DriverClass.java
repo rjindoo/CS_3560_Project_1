@@ -4,6 +4,7 @@ public class DriverClass {
         Student a = new Student();
 
         System.out.println(a.getStudentID());
+        System.out.println(a.getStudentAnswer());
 
     }
 }
