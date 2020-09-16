@@ -1,3 +1,10 @@
 public class TrueFalseVotingService {
-    // TODO
+
+    public void store(char studentAnswer) {
+
+    }
+
+    public void getResults() {
+
+    }
 }

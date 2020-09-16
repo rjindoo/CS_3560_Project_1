@@ -5,7 +5,7 @@ public class MultipleChoiceQuestion implements Question {
 
     private int counter = 0;
 
-    private String[] questionBank = {
+    public String[] questionBank = {
             "Multiple Choice"
     };
 
@@ -16,5 +16,13 @@ public class MultipleChoiceQuestion implements Question {
         return question;
     }
 
+    @Override
+    public boolean isMultipleChoice() {
+        return true;
+    }
 
+    @Override
+    public boolean isTrueFalse() {
+        return false;
+    }
 }
