@@ -3,13 +3,15 @@ public class TrueFalseQuestion implements Question {
 
     private int counter = 0;
 
-    private String[] questionBank = {
-            "True / False"
+    private QuestionObject[] questionBank = {
+            new QuestionObject("True False Question POGERSSSSSSS", 'A'),
+            new QuestionObject("Is CS fun?", 'A'),
+            new QuestionObject("Are traps gay?", 'B')
     };
 
     @Override
     public String getQuestionText() {
-        String question = questionBank[counter];
+        String question = questionBank[counter].questionText;
         ++counter;
         return question;
     }
