@@ -5,4 +5,8 @@ public interface Question {
     public boolean isMultipleChoice();
 
     public boolean isTrueFalse();
+
+    public boolean isEmpty();
+
+    public void getQuestionChoices();
 }

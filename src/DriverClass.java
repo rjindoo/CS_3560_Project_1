@@ -5,35 +5,34 @@ public class DriverClass {
     }
 
     private static void simulateVoting(){
-        Student[] students = {
-                new Student(),
-                new Student(),
-                new Student()
-        };
         Question[] questions = {
                 new MultipleChoiceQuestion(),
                 new TrueFalseQuestion(),
-                new TrueFalseQuestion()
         };
 
+        // Loop through question object array to simulate student voting
         for(Question q: questions) {
-            System.out.println("The question is: " + q.getQuestionText());
-            if (q.isMultipleChoice()) {
-                MultipleChoiceVotingService votingService = new MultipleChoiceVotingService();
-                for (Student s : students) {
-                    System.out.println("Student: " + s.getStudentID() + " answered " + s.getStudentAnswer());
-                    votingService.store(s.getStudentAnswer());
+            while(!q.isEmpty()) {
+                System.out.println("\nThe question is: " + q.getQuestionText()); // Display question text
+                q.getQuestionChoices(); // Display question choices
+                if (q.isMultipleChoice()) {
+                    MultipleChoiceVotingService votingService = new MultipleChoiceVotingService();
+                    createStudents(votingService); // create students to simulate answering
+                    votingService.getResults(); // store results from student object answers
                 }
-                votingService.getResults();
-            }
-            else {
-                TrueFalseVotingService votingService = new TrueFalseVotingService();
-                for (Student s : students) {
-                    System.out.println("Student: " + s.getStudentID() + " answered " + s.getStudentAnswer());
-                    votingService.store(s.getStudentAnswer());
+                else {
+                    TrueFalseVotingService votingService = new TrueFalseVotingService();
+                    createStudents(votingService);
+                    votingService.getResults();
                 }
-                votingService.getResults();
             }
+        }
+    }
+
+    private static void createStudents(VotingService votingService){
+        for(int i=0; i<5; i++) {
+            Student student = new MultipleChoiceStudent();
+            votingService.store(student.getStudentAnswer());
         }
     }
 

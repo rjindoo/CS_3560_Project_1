@@ -1,24 +1,11 @@
-import java.util.UUID;
 import java.util.Random;
+import java.util.UUID;
 
-public class Student {
-    Random rand = new Random();
+public interface Student {
 
-    private String studentID;
-    private char studentAnswer;
-    private char[] possibleAnswers = {'A','B','C','D'};
+    public char getStudentAnswer();
 
+    public String getStudentID();
 
-    public Student(){
-        this.studentID = UUID.randomUUID().toString();
-        this.studentAnswer = possibleAnswers[rand.nextInt(4)];
-    }
-
-    public char getStudentAnswer(){
-        return studentAnswer;
-    }
-
-    public String getStudentID(){
-        return studentID;
-    }
 }
+
