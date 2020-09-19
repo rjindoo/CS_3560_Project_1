@@ -1,6 +1,4 @@
 public class DriverClass {
-    private final String TRUE_FALSE_TAG = "TrueFalse";
-    private final String MULTIPLE_CHOICE_TAG = "MultipleChoice";
 
     public static void main(String[] args){
         // Create student and question objects voting simulator
@@ -11,7 +9,8 @@ public class DriverClass {
         Question[] questions = {
                 new MultipleChoiceQuestion("What is 2+2", 'A', "4", "3", "7", "0"),
                 new MultipleChoiceQuestion("What is 9+10", 'C', "21", "-1", "19", "1"),
-                new TrueFalseQuestion("The Capital of California is Sacramento", 'A')
+                new TrueFalseQuestion("The Capital of California is Sacramento", 'A'),
+                new TrueFalseQuestion("Gareth Bale plays for Real Madrid", 'B')
         };
 
         // Loop through question object array to simulate student voting

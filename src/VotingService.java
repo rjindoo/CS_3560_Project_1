@@ -4,5 +4,4 @@ public interface VotingService {
 
     public void store(char x);
 
-    public String getTag();
 }

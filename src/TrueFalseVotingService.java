@@ -4,7 +4,6 @@ import java.util.List;
 
 public class TrueFalseVotingService implements VotingService {
     private List<Character> studentAnswers = new ArrayList();
-    private final String TAG = "TrueFalse";
 
     public void store(char studentAnswer) {
         studentAnswers.add(studentAnswer);
@@ -15,8 +14,5 @@ public class TrueFalseVotingService implements VotingService {
         System.out.println(studentAnswers);
     }
 
-    public String getTag(){
-        return TAG;
-    }
 
 }
