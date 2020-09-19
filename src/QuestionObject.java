@@ -33,6 +33,9 @@ public class QuestionObject {
     }
 
     public void getQuestionOptions() {
-        System.out.printf("A: %s\nB: %s\n", answer1, answer2);
+        if(answer3 == null)
+            System.out.printf("A: %s\nB: %s\n", answer1, answer2);
+        else
+            System.out.printf("A: %s\nB: %s\nC: %s\nD: %s\n", answer1, answer2, answer3, answer4);
     }
 }

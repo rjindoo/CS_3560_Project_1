@@ -6,7 +6,5 @@ public interface Question {
 
     public boolean isTrueFalse();
 
-    public boolean isEmpty();
-
     public void getQuestionChoices();
 }

@@ -1,23 +1,21 @@
 public class TrueFalseQuestion implements Question {
 
-
     private int counter = 0;
+    private QuestionObject newQuestion;
 
-    private QuestionObject[] questionBank = {
-            new QuestionObject("True / False Question", 'B'),
-            new QuestionObject("Is CS fun?", 'A'),
-            new QuestionObject("This one should be true.", 'B')
-    };
+    public TrueFalseQuestion(String questionText, char questionAnswer){
+        newQuestion = new QuestionObject(questionText, questionAnswer);
+    }
 
     @Override
     public String getQuestionText() {
-        String question = questionBank[counter].getQuestionText();
+        String question = newQuestion.getQuestionText();
         return question;
     }
 
     @Override
     public void getQuestionChoices() {
-        questionBank[counter].getQuestionOptions();
+        newQuestion.getQuestionOptions();
         ++counter;
     }
 
@@ -31,11 +29,4 @@ public class TrueFalseQuestion implements Question {
         return true;
     }
 
-    @Override
-    public boolean isEmpty(){
-        if(counter > questionBank.length-1){
-            return true;
-        }
-        return false;
-    }
 }
