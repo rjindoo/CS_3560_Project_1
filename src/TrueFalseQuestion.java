@@ -1,8 +1,8 @@
 public class TrueFalseQuestion implements Question {
 
-    private int counter = 0;
     private QuestionObject newQuestion;
 
+    // Constructor to create a T/F question
     public TrueFalseQuestion(String questionText, char questionAnswer){
         newQuestion = new QuestionObject(questionText, questionAnswer);
     }
@@ -16,7 +16,6 @@ public class TrueFalseQuestion implements Question {
     @Override
     public void getQuestionChoices() {
         newQuestion.getQuestionOptions();
-        ++counter;
     }
 
     @Override

@@ -1,4 +1,7 @@
 public class DriverClass {
+    private final String TRUE_FALSE_TAG = "TrueFalse";
+    private final String MULTIPLE_CHOICE_TAG = "MultipleChoice";
+
     public static void main(String[] args){
         // Create student and question objects voting simulator
         simulateVoting();
@@ -17,20 +20,26 @@ public class DriverClass {
             q.getQuestionChoices(); // Display question choices
             if (q.isMultipleChoice()) {
                 MultipleChoiceVotingService votingService = new MultipleChoiceVotingService();
-                createStudents(votingService); // create students to simulate answering
+                createMultipleChoiceStudents(votingService); // create students to simulate answering
                 votingService.getResults(); // store results from student object answers
             }
             else {
                 TrueFalseVotingService votingService = new TrueFalseVotingService();
-                createStudents(votingService);
+                createTrueFalseStudents(votingService);
                 votingService.getResults();
             }
         }
     }
 
-    private static void createStudents(VotingService votingService){
+    private static void createMultipleChoiceStudents(VotingService votingService){
         for(int i=0; i<5; i++) {
             Student student = new MultipleChoiceStudent();
+            votingService.store(student.getStudentAnswer());
+        }
+    }
+    private static void createTrueFalseStudents(VotingService votingService){
+        for(int i=0; i<5; i++) {
+            Student student = new TrueFalseStudent();
             votingService.store(student.getStudentAnswer());
         }
     }

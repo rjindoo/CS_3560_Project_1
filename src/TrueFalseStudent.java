@@ -6,7 +6,7 @@ public class TrueFalseStudent implements Student {
 
     private String studentID;
     private char studentAnswer;
-    private char[] trueFalseAnswers = {'T', 'F'};
+    private char[] trueFalseAnswers = {'A', 'B'};
 
     public TrueFalseStudent(){
         this.studentID = UUID.randomUUID().toString();
