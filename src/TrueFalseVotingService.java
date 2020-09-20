@@ -1,17 +1,22 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class TrueFalseVotingService implements VotingService {
-    private List<Character> studentAnswers = new ArrayList();
+    //private List<Character> studentAnswers = new ArrayList();
+    private HashMap<String, Character> studentAnswers = new HashMap<>();
 
-    public void store(char studentAnswer) {
-        studentAnswers.add(studentAnswer);
+    public void store(String studentID, char studentAnswer) {
+        if(studentAnswers.containsKey(studentID)){
+            studentAnswers.replace(studentID, studentAnswer);
+        }
+        else {
+            studentAnswers.put(studentID, studentAnswer);
+        }
     }
 
     public void getResults() {
-        Collections.sort(studentAnswers);
-        System.out.println(studentAnswers);
+        studentAnswers.forEach((k,v) -> {
+            System.out.println("Student " + k + " answered: " + v);
+        });
     }
 
 

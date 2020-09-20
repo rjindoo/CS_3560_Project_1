@@ -33,13 +33,13 @@ public class DriverClass {
     private static void createMultipleChoiceStudents(VotingService votingService){
         for(int i=0; i<5; i++) {
             Student student = new MultipleChoiceStudent();
-            votingService.store(student.getStudentAnswer());
+            votingService.store(student.getStudentID(), student.getStudentAnswer());
         }
     }
     private static void createTrueFalseStudents(VotingService votingService){
         for(int i=0; i<5; i++) {
             Student student = new TrueFalseStudent();
-            votingService.store(student.getStudentAnswer());
+            votingService.store(student.getStudentID(), student.getStudentAnswer());
         }
     }
 
