@@ -10,7 +10,7 @@ public class MultipleChoiceVotingService implements VotingService {
 
     public void getResults() {
         studentAnswers.forEach((k,v) -> {
-            System.out.println("Student answered: " + v);
+            System.out.println("Student " + k + " answered: " + v);
         });
     }
 
