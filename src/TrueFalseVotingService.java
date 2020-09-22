@@ -14,9 +14,17 @@ public class TrueFalseVotingService implements VotingService {
     }
 
     public void getResults() {
+        int[] lst = new int[2];
         studentAnswers.forEach((k,v) -> {
-            System.out.println("Student " + k + " answered: " + v);
+            if(v == 'A'){
+                lst[0] += 1;
+            }
+            else{
+                lst[1] += 1;
+            }
         });
+        System.out.printf("Students answered A: %d\n" +
+                          "Students answered B: %d\n", lst[0], lst[1]);
     }
 
 

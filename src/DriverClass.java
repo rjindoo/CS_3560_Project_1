@@ -40,6 +40,8 @@ public class DriverClass {
         for(int i=0; i<5; i++) {
             Student student = new TrueFalseStudent();
             votingService.store(student.getStudentID(), student.getStudentAnswer());
+            // Storing twice to show that repeated answers overwrite previous answer
+            votingService.store(student.getStudentID(), student.getStudentAnswer());
         }
     }
 
