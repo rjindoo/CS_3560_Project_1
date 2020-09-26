@@ -1,5 +1,6 @@
 public class MultipleChoiceQuestion implements Question {
 
+    // Create QuestionObject, attributes hardcoded in DriverClass
     private QuestionObject newQuestion;
 
     // Constructor to create a Multiple Choice Question

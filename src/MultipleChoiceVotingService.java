@@ -4,11 +4,19 @@ public class MultipleChoiceVotingService implements VotingService {
     private HashMap<String, Character> studentAnswers = new HashMap();
 
     public void store(String studentID, char studentAnswer) {
-        studentAnswers.put(studentID, studentAnswer);
+        // Check HashMap to see if student has submitted a response
+        if(studentAnswers.containsKey(studentID)){
+            System.out.printf("Student %s has changed their answer\n", studentID);
+            studentAnswers.replace(studentID, studentAnswer);
+        }
+        else {
+            studentAnswers.put(studentID, studentAnswer);
+        }
     }
 
     public void getResults() {
         int[] lst = new int[4];
+        // iterate over HashMap and increment lst indices (0 - 3 correspond to A,B,C,D)
         studentAnswers.forEach((k,v) -> {
             if(v == 'A'){
                 lst[0] += 1;

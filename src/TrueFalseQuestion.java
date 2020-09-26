@@ -1,5 +1,6 @@
 public class TrueFalseQuestion implements Question {
 
+    // Create QuestionObject, attributes are hardcoded in DriverClass
     private QuestionObject newQuestion;
 
     // Constructor to create a T/F question

@@ -13,10 +13,13 @@ public class DriverClass {
                 new TrueFalseQuestion("Gareth Bale plays for Real Madrid", 'B')
         };
 
-        // Loop through question object array to simulate student voting
+        // Loop through question object array and simulate student voting
         for(Question q: questions) {
-            System.out.println("\nThe question is: " + q.getQuestionText()); // Display question text
-            q.getQuestionChoices(); // Display question choices
+
+            // Display question text
+            System.out.println("\nThe question is: " + q.getQuestionText());
+
+            q.getQuestionChoices();
             if (q.isMultipleChoice()) {
                 MultipleChoiceVotingService votingService = new MultipleChoiceVotingService();
                 createMultipleChoiceStudents(votingService); // create students to simulate answering
@@ -34,14 +37,20 @@ public class DriverClass {
         for(int i=0; i<5; i++) {
             Student student = new MultipleChoiceStudent();
             votingService.store(student.getStudentID(), student.getStudentAnswer());
+
+            // Showing that if a student resubmits their answer will be updated
+            if(i % 2 == 0)
+                votingService.store(student.getStudentID(), student.getStudentAnswer());
         }
     }
     private static void createTrueFalseStudents(VotingService votingService){
         for(int i=0; i<5; i++) {
             Student student = new TrueFalseStudent();
             votingService.store(student.getStudentID(), student.getStudentAnswer());
-            // Storing twice to show that repeated answers overwrite previous answer
-            votingService.store(student.getStudentID(), student.getStudentAnswer());
+
+            // Showing that if a student resubmits their answer will be updated
+            if(i % 2 == 0)
+                votingService.store(student.getStudentID(), student.getStudentAnswer());
         }
     }
 

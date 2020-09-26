@@ -32,6 +32,7 @@ public class QuestionObject {
         return this.questionAnswer;
     }
 
+    // Displays Questions that are created in the DriverClass
     public void getQuestionOptions() {
         if(answer3 == null)
             System.out.printf("A: %s\nB: %s\n", answer1, answer2);
